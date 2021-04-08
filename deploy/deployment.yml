@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: udagram-users-api
+  name: udagram-users-api
+spec:
+  selector:
+    matchLabels:
+      app: udagram-users-api
+  template:
+    metadata:
+      labels:
+        app: udagram-users-api
+    spec:
+      containers:
+        - name: udagram-users-api
+          image: g0ng0n/u-users-api:latest
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80
